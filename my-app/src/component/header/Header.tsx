@@ -6,7 +6,11 @@ import { ReactComponent as LoginIcon } from "../../assets/login.svg";
 import "./Header.scss"
 import { Link } from 'react-router-dom';
 
+
 const Header: React.FC = () => {
+    const handleLogout = () => {
+
+    }
     return (
 
         <nav className="header-container">
@@ -33,7 +37,7 @@ const Header: React.FC = () => {
                 {logged ?
                     <>
                         <LogoutIcon onClick={handleLogout} className="icon-button logout-button" />
-                        <Username />
+
                     </>
                     :
                     <Link to="../login">
