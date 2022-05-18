@@ -1,16 +1,9 @@
 import React from 'react';
 import { ReactComponent as Logo } from "../../assets/logo.svg";
-import { ReactComponent as LogoutIcon } from "../../assets/logout.svg";
-import { ReactComponent as LoginIcon } from "../../assets/login.svg";
 
 import "./Header.scss"
-import { Link } from 'react-router-dom';
-
 
 const Header: React.FC = () => {
-    const handleLogout = () => {
-
-    }
     return (
 
         <nav className="header-container">
@@ -33,20 +26,6 @@ const Header: React.FC = () => {
                 </li>
 
             </ul>
-            <div className="controls">
-                {logged ?
-                    <>
-                        <LogoutIcon onClick={handleLogout} className="icon-button logout-button" />
-
-                    </>
-                    :
-                    <Link to="../login">
-                        <LoginIcon onClick={handleLogout} className="icon-button logout-button" />
-                    </Link>
-                }
-            </div>
-
-
         </nav>
 
     );
