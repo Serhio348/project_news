@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as Logo } from "../../assets/logo.svg";
+import { ReactComponent as LogoIcon } from "../../assets/logo.svg";
 
 import "./Header.scss"
 
@@ -8,7 +8,7 @@ const Header: React.FC = () => {
 
         <nav className="header-container">
             <div className="logo">
-                <Logo />
+                <LogoIcon />
                 <div className="app-name">
                     World News
                 </div>

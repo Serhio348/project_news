@@ -36,9 +36,8 @@ const App: React.FC = () => {
   return (
     <div className="app-container">
       <Header />
-      <News />
       <div className="app-content">
-
+        <News />
       </div>
     </div>
   );

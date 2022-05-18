@@ -8,13 +8,13 @@
   justify-content: space-between;
 
   .image {
-    width: 350px;
+    max-width: 350px;
     height: 200px;
     margin-bottom: 5px;
   }
 
   .image-placeholder {
-    width: 350px;
+    max-width: 350px;
     height: 200px;
     margin-bottom: 5px;
     background-color: #bfd8ff;
@@ -59,6 +59,6 @@
 
   .date {
     font-size: 15px;
-    color: var(--primary-color2);
+    color: var(--primary-color0);
   }
 }
