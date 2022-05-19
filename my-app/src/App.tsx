@@ -3,8 +3,9 @@ import Header from './component/header/Header';
 
 
 import './App.scss';
-import NewsPost from './component/newsPost/newsPost';
+import NewsPost from './component/newsPost/NewsPost';
 import { Route } from 'react-router-dom';
+import NewsPosts from './component/newsPosts/NewsPosts';
 
 
 
@@ -14,7 +15,7 @@ const App: React.FC = () => {
     <div className="app-container">
       <Header />
       <div className="app-content">
-        <NewsPost />
+        <NewsPosts />
       </div>
     </div>
   );
