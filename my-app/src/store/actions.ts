@@ -1,7 +1,6 @@
-import { authActions } from "./auth/authSlice";
-
+import * as postActions from "./newsPost/actionCretors"
 const actions = {
-    ...authActions
+    ...postActions,
 }
 
 export default actions;

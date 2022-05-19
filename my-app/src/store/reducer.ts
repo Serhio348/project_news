@@ -1,7 +1,7 @@
-import { authReducer } from "./auth/authSlice";
+
+import { newsPostReducer } from "../store/newsPost/reducer";
 
 const reducer = {
-    auth: authReducer,
+    newsPost: newsPostReducer
 };
-
 export default reducer;

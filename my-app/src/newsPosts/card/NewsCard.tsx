@@ -14,9 +14,9 @@ const NewsCard: React.FC<PropsType> = ({ data }) => {
     return (
         <div className='post-card-container'>
 
-            {data.image_url
+            {data.imageUrl
                 ?
-                <img src={data.image_url} alt="Server error" className='image' />
+                <img src={data.imageUrl} alt="Server error" className='image' />
                 :
                 <div className='image-placeholder'>
                     <div />
@@ -28,10 +28,10 @@ const NewsCard: React.FC<PropsType> = ({ data }) => {
                 {data.title}
             </div>
             <div className='text'>
-                {data.description}
+                {data.summary}
             </div>
             <div className='date'>
-                {data.pubDate}
+                {data.publishedAt}
             </div>
         </div>
     )
