@@ -3,8 +3,6 @@ import Header from './component/header/Header';
 
 
 import './App.scss';
-import NewsPost from './component/newsPost/NewsPost';
-import { Route } from 'react-router-dom';
 import NewsPosts from './component/newsPosts/NewsPosts';
 
 
