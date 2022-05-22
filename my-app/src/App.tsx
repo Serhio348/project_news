@@ -1,12 +1,8 @@
 import React from 'react';
 import Header from './component/header/Header';
-
-
-import './App.scss';
 import NewsPosts from './component/newsPosts/NewsPosts';
 
-
-
+import './App.scss';
 const App: React.FC = () => {
 
   return (
