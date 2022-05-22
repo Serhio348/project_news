@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ReactComponent as LogoIcon } from "../../assets/logo.svg";
 
 import "./Header.scss"
@@ -16,10 +17,10 @@ const Header: React.FC = () => {
 
             <ul className="links">
                 <li>
-                    <a href="/">News Space</a>
+                    <Link to="/newsPosts">News Space</Link>
                 </li>
                 <li>
-                    <a href="/">Category</a>
+                    <Link to="/login">Login</Link>
                 </li>
                 <li>
                     <a href="/">My news</a>
