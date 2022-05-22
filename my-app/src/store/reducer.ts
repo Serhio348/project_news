@@ -1,9 +1,11 @@
 
 import { combineReducers } from "@reduxjs/toolkit";
-import { newsPostReducer } from "../store/newsPost/reducer";
-import { newsReducer } from "./newsPosts/newsPostsSlice";
+import { newsPostsReducer } from "./newsPosts/newsPostsSlice";
+import { newsPostReducer } from "./newsPost/newsPostSlice";
+
 
 export default combineReducers({
+    newsPosts: newsPostsReducer,
     newsPost: newsPostReducer,
-    newsPosts: newsReducer,
+
 });

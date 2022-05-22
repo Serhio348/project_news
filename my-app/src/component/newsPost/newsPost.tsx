@@ -5,11 +5,10 @@ import { useSelector } from '../hooks/useSelector';
 import Image from '../image/Image';
 
 
-const URL = "https://api.spaceflightnewsapi.net/v3/articles/15105";
+
 
 const NewsPost: React.FC = () => {
     const { id } = useParams()
-
 
     const data = useSelector(state => state.newsPost.data);
     const loading = useSelector(state => state.newsPost.loading)

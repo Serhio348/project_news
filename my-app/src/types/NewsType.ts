@@ -1,8 +1,8 @@
 type NewsType = {
-    title: string,
+    title?: string,
     imageUrl?: string,
     id: number,
-    publishedAt: string,
+    publishedAt?: string,
     summary: string,
 }
 export default NewsType;
