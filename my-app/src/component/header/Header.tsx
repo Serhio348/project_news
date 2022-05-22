@@ -16,7 +16,7 @@ const Header: React.FC = () => {
 
             <ul className="links">
                 <li>
-                    <a href="/">Country</a>
+                    <a href="/">News Space</a>
                 </li>
                 <li>
                     <a href="/">Category</a>
