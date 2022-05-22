@@ -2,7 +2,7 @@ import PostsFilterType, { PostsFilterActionTypes, PostsOrder, PostsFilterAction 
 
 
 export const initialState: PostsFilterType = {
-    limit: 20,
+    limit: 50,
 }
 
 export const NewsFilterReducer = (state: PostsFilterType, action: PostsFilterAction): PostsFilterType => {

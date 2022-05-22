@@ -17,7 +17,6 @@ export const fetchPosts = ({ limit }: PostsFilterType) => async (dispatch: any) 
     // }
     try {
         const response = await axios.get(url)
-        dispatch(actions.setFetchNewsLoading(true))
         dispatch(actions.setFetchNewsData(response.data as NewsType[]))
     } catch {
         dispatch(actions.setFetchNewsError(true));

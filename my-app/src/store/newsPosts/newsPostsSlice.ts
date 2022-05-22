@@ -13,9 +13,7 @@ export const initialState: StoreType = {
     data: [],
     loading: false,
     error: false,
-
 }
-
 const newsPostSlice = createSlice({
     name: "newsPosts",
     initialState,
