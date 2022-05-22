@@ -16,9 +16,9 @@ const App: React.FC = () => {
     <BrowserRouter>
       <div className="app-container">
         <Header />
-
+        <NewsPost />
         <div className="app-content">
-          <Routes>
+          {/* <Routes>
             <Route path="*" element={<NewsPosts />} />
             <Route path="/login" element={<Login />} />
             <Route path="/registration" element={<Registration />} />
@@ -27,7 +27,7 @@ const App: React.FC = () => {
               <Route path=":id" element={<NewsPost />} />
             </Route>
             <Route path="*" element={<Navigate to={"/newsPosts"} />} />
-          </Routes>
+          </Routes> */}
 
         </div>
       </div>

@@ -24,7 +24,7 @@ const newsPostSlice = createSlice({
         setFetchNewsPostError: (state, action: PayloadAction<boolean>) => {
             state.error = action.payload
         },
-        setFetchNewsPostData: (state, action: PayloadAction<NewsType>) => {
+        setFetchNewsPostData: (state, action: PayloadAction<NewsType | undefined>) => {
             state.data = action.payload
         },
 
