@@ -12,9 +12,16 @@ const Registration: React.FC = () => {
     }
 
     return (
-        <FormCard header="Login">
+        <FormCard header="Registration">
             <FormTextField
                 autofocus
+                label="Name"
+                name="name"
+                type="name"
+                values={values}
+                setValues={setValues}
+            />
+            <FormTextField
                 label="Email"
                 type="email"
                 name="email"
@@ -28,12 +35,19 @@ const Registration: React.FC = () => {
                 values={values}
                 setValues={setValues}
             />
+            <FormTextField
+                label="Confirm password"
+                type="password"
+                name="confirmPassword"
+                values={values}
+                setValues={setValues}
+            />
             <Button
                 variant="contained"
                 onClick={handleSubmit}
                 className="button-click"
             >
-                login.submit
+                Registration
             </Button>
         </FormCard>
     )
