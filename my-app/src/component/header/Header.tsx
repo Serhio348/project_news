@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { ReactComponent as LogoIcon } from "../../assets/logo.svg";
 
@@ -17,13 +18,13 @@ const Header: React.FC = () => {
 
             <ul className="links">
                 <li>
-                    <Link to="/newsPosts">News Space</Link>
+                    <NavLink to="/newsPosts" className={({ isActive }) => isActive ? "_active" : ""}>Space News</NavLink>
                 </li>
                 <li>
-                    <Link to="/login">Login</Link>
+                    <NavLink to="/login" className={({ isActive }) => isActive ? "_active" : ""}>Login</NavLink>
                 </li>
                 <li>
-                    <Link to="/registration">Registration</Link>
+                    <NavLink to="/registration" className={({ isActive }) => isActive ? "_active" : ""}>Registration</NavLink>
                 </li>
 
             </ul>

@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './component/header/Header';
 import NewsPosts from './component/newsPosts/NewsPosts';
 import Login from './component/login/Login';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import './App.scss';
 import Registration from './component/registration/Registration';
@@ -16,19 +16,16 @@ const App: React.FC = () => {
     <BrowserRouter>
       <div className="app-container">
         <Header />
-        <NewsPost />
         <div className="app-content">
-          {/* <Routes>
-            <Route path="*" element={<NewsPosts />} />
+          <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/registration" element={<Registration />} />
-            <Route path="/newsPost" >
+            <Route path="newsPosts">
               <Route index element={<NewsPosts />} />
               <Route path=":id" element={<NewsPost />} />
             </Route>
-            <Route path="*" element={<Navigate to={"/newsPosts"} />} />
-          </Routes> */}
-
+            {/* <Route path="*" element={<NewsPosts />} /> */}
+          </Routes>
         </div>
       </div>
     </BrowserRouter>

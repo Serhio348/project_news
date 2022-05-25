@@ -4,5 +4,6 @@ type NewsType = {
     id: number,
     publishedAt?: string,
     summary: string,
+    url?: string,
 }
 export default NewsType;

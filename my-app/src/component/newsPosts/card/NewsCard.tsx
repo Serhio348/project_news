@@ -5,12 +5,9 @@ import Image from '../../image/Image';
 
 import "./NewsCard.scss";
 
-
 type PropsType = {
     data: NewsType
 }
-
-
 const NewsCard: React.FC<PropsType> = ({ data }) => {
     // const navigate = useNavigate();
 
@@ -21,7 +18,7 @@ const NewsCard: React.FC<PropsType> = ({ data }) => {
     // }
 
     return (
-        <div className='post-card-container'>
+        <div className='posts-card-container'>
 
             {data.imageUrl
                 ?
@@ -32,16 +29,19 @@ const NewsCard: React.FC<PropsType> = ({ data }) => {
                     <div />
                 </div>
             }
+            <Link to={`/newsPosts/${data.id}`} >
+                <div className='title'>
+                    {data.title}
 
-            <div className='title'>
-                {data.title}
-            </div>
-            <div className='text'>
-                {data.summary}
-            </div>
-            <div className='date'>
-                {data.publishedAt}
-            </div>
+                </div>
+                <div className='date'>
+                    {data.publishedAt}
+                </div>
+                <div className='text'>
+                    {data.summary}
+                </div>
+            </Link>
+
         </div>
     )
 }
