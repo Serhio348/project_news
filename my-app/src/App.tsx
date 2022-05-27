@@ -24,9 +24,10 @@ const App: React.FC = () => {
               <Route index element={<NewsPosts />} />
               <Route path=":id" element={<NewsPost />} />
             </Route>
-            {/* <Route path="*" element={<NewsPosts />} /> */}
+            <Route path="*" element={<NewsPosts />} />
           </Routes>
         </div>
+        <h1>AX</h1>
       </div>
     </BrowserRouter>
   );

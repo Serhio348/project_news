@@ -46,7 +46,7 @@ const NewsPost: React.FC = () => {
 
         <Image src={data.imageUrl} />
         <div className='title'>
-            <p><a href={data.url}>{data.title}</a></p>
+            {data.title}
         </div>
 
         <div className='date'>
@@ -54,6 +54,9 @@ const NewsPost: React.FC = () => {
         </div>
         <div className='text'>
             {data.summary}
+        </div>
+        <div className='url'>
+            <p><a href={data.url}>Read more</a></p>
         </div>
     </div>);
 

@@ -39,3 +39,39 @@
     }
   }
 }
+.title {
+  font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
+  margin-bottom: 5px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-style: normal;
+  color: #222222;
+  text-rendering: optimizeLegibility;
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+.title.p.a:hover {
+  color: red;
+}
+
+.text {
+  font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  text-rendering: optimizeLegibility;
+  margin-bottom: 14px;
+  color: #000000;
+}
+.date {
+  font-size: 0.6rem;
+  color: var(--primary-color0);
+  margin-bottom: 15px;
+  color: #c1c2c4;
+}
+.url {
+  font-size: 0.9rem;
+  color: #c1c2c4;
+}
+div p a {
+  color: red;
+}
