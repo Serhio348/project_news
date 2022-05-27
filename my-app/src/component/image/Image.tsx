@@ -16,7 +16,7 @@ const Image: React.FC<PropsType> = ({ src }) => {
     }
 
     return (
-        <div>
+        <div className='post-card-container'>
             {!!src && !error
                 ?
                 <img src={src} onError={onError} alt="Server error" className='image' />

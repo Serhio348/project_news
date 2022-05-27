@@ -47,11 +47,11 @@
 
       &:hover {
         color: #b0adad;
-        &._active {
-          font-weight: 600;
-          text-transform: uppercase;
-        }
       }
     }
   }
+}
+._active {
+  font-weight: 600;
+  text-transform: uppercase;
 }

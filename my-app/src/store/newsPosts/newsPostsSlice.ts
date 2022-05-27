@@ -3,7 +3,7 @@ import NewsType from "../../types/NewsType"
 
 
 type StoreType = {
-    data: NewsType[];
+    data: NewsType[],
     loading: boolean,
     error: boolean,
 
@@ -14,7 +14,7 @@ export const initialState: StoreType = {
     loading: false,
     error: false,
 }
-const newsPostSlice = createSlice({
+const newsPostsSlice = createSlice({
     name: "newsPosts",
     initialState,
     reducers: {
@@ -31,5 +31,5 @@ const newsPostSlice = createSlice({
     }
 });
 
-export const newsReducer = newsPostSlice.reducer;
-export const newsActions = newsPostSlice.actions;
+export const newsPostsReducer = newsPostsSlice.reducer;
+export const newsPostsActions = newsPostsSlice.actions;

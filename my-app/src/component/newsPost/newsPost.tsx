@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useActions } from '../hooks/useActions';
 import { useSelector } from '../hooks/useSelector';
 import Image from '../image/Image';
+
+
 
 
 const URL = "https://api.spaceflightnewsapi.net/v3/articles/15105";
@@ -42,15 +45,18 @@ const NewsPost: React.FC = () => {
     return (<div className='post-card-container'>
 
         <Image src={data.imageUrl} />
-
         <div className='title'>
             {data.title}
+        </div>
+
+        <div className='date'>
+            {data.publishedAt}
         </div>
         <div className='text'>
             {data.summary}
         </div>
-        <div className='date'>
-            {data.publishedAt}
+        <div className='url'>
+            <p><a href={data.url}>Read more</a></p>
         </div>
     </div>);
 
