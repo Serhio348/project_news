@@ -8,7 +8,6 @@ type StoreTypes = {
     error: boolean,
 
 }
-
 export const initialState: StoreTypes = {
     data: undefined,
     loading: false,

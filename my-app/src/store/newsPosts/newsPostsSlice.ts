@@ -1,35 +1,43 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import NewsType from "../../types/NewsType"
+import { fetchPosts } from "./newsPostsThunks";
 
 
 type StoreType = {
     data: NewsType[],
     loading: boolean,
-    error: boolean,
+    error?: string,
 
 }
 
 export const initialState: StoreType = {
     data: [],
     loading: false,
-    error: false,
+
 }
 const newsPostsSlice = createSlice({
     name: "newsPosts",
     initialState,
-    reducers: {
-        setFetchNewsLoading: (state, action: PayloadAction<boolean>) => {
-            state.loading = action.payload
-        },
-        setFetchNewsError: (state, action: PayloadAction<boolean>) => {
-            state.error = action.payload
-        },
-        setFetchNewsData: (state, action: PayloadAction<NewsType[]>) => {
-            state.data = action.payload
-        },
-
+    reducers: {},
+    extraReducers: builder => {
+        builder.addCase(fetchPosts.pending, (state) => {
+            state.loading = true;
+            state.error = undefined;
+            state.data = [];
+        });
+        builder.addCase(fetchPosts.rejected, (state, { payload }) => {
+            state.loading = false;
+            state.error = payload;
+        });
+        builder.addCase(fetchPosts.fulfilled, (state, { payload }) => {
+            state.loading = false;
+            state.data = payload.data;
+        });
     }
 });
 
 export const newsPostsReducer = newsPostsSlice.reducer;
-export const newsPostsActions = newsPostsSlice.actions;
+export const newsPostsActions = {
+    ...newsPostsSlice.actions,
+    fetchPosts
+};

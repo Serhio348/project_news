@@ -9,8 +9,6 @@ import NewsPost from './component/newsPost/newsPost';
 import './App.scss';
 
 
-
-
 const App: React.FC = () => {
 
   return (
