@@ -17,6 +17,5 @@ export const fetchPost = (id?: string) => async (dispatch: any) => {
         dispatch(actions.setFetchNewsPostError(true));
     }
     dispatch(actions.setFetchNewsPostLoading(false))
-
 }
 

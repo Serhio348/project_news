@@ -12,13 +12,13 @@ const Header: React.FC = () => {
             <div className="logo">
                 <LogoIcon />
                 <div className="app-name">
-                    World News
+                    Space News
                 </div>
             </div>
 
             <ul className="links">
                 <li>
-                    <NavLink to="/newsPosts" className={({ isActive }) => isActive ? "_active" : ""}>Space News</NavLink>
+                    <NavLink to="/newsPosts" className={({ isActive }) => isActive ? "_active" : ""}>News</NavLink>
                 </li>
                 <li>
                     <NavLink to="/login" className={({ isActive }) => isActive ? "_active" : ""}>Login</NavLink>
