@@ -43,7 +43,6 @@ type PostsFilterType = {
     page?: number
     newsSite?: string
     ordering?: PostsOrder
-
 }
 
 export default PostsFilterType;
