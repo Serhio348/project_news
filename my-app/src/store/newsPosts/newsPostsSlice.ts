@@ -7,12 +7,16 @@ type StoreType = {
     data: NewsType[],
     loading: boolean,
     error?: string,
+    limit: number,
+    count: number,
 
 }
 
 export const initialState: StoreType = {
     data: [],
     loading: false,
+    limit: 10,
+    count: 0,
 
 }
 const newsPostsSlice = createSlice({
@@ -32,6 +36,7 @@ const newsPostsSlice = createSlice({
         builder.addCase(fetchPosts.fulfilled, (state, { payload }) => {
             state.loading = false;
             state.data = payload.data;
+            state.count = payload.count;
         });
     }
 });

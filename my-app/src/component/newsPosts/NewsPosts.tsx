@@ -5,17 +5,21 @@ import { useActions } from '../hooks/useActions';
 import { initialState, NewsFilterReducer } from './NewsFilterReducer';
 
 import "./NewsPosts.scss";
+import NewsFilter from './NewsFilter';
 
-type PropsType = {};
+
+type PropsType = {}
 
 const NewsPosts: React.FC<PropsType> = () => {
-    const [state] = useReducer(NewsFilterReducer, initialState);
-
+    const [state, dispatch] = useReducer(NewsFilterReducer, initialState);
     const { fetchPosts } = useActions()
-
     const data = useSelector(state => state.newsPosts.data)
     const loading = useSelector(state => state.newsPosts.loading)
     const error = useSelector(state => state.newsPosts.error)
+    const count = useSelector(state => state.newsPosts.count)
+
+
+    // const state = useSelector(state => state.newsFilterPosts.dataFilter)
 
     useEffect(() => {
         fetchPosts(state)
@@ -23,12 +27,19 @@ const NewsPosts: React.FC<PropsType> = () => {
 
     return (
         <div className='posts-container'>
+
             <div className='cards'>
                 {data.map((item) => <NewsCard key={item.id} data={item} />)}
             </div>
             {loading && "Loading..."}
             {error && "Error ("}
+            <NewsFilter
+                count={count}
+                state={state}
+                dispatch={dispatch}
+            />
         </div>
+
     )
 }
 
