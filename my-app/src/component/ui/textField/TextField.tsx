@@ -6,7 +6,7 @@ type PropsType = {
     autofocus?: boolean
     label: string
     type?: string
-    value: string
+    value?: string
     setValue: (value: string) => void
 }
 

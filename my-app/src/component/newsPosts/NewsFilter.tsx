@@ -1,10 +1,13 @@
 import React from 'react';
 import Pagination from '@mui/material/Pagination';
-import { Paper } from '@mui/material';
+import { MenuItem, Paper } from '@mui/material';
 import PostsFilterType from './PostsFilterTypes';
 import { setLimit, setPage } from './NewsFilterActionCreators';
 import { useSelector } from '../hooks/useSelector';
 import { useActions } from '../hooks/useActions';
+import Select from '../ui/select/Select';
+;
+
 
 type PropsType = {
     count: number,
@@ -32,9 +35,10 @@ const NewsFilter: React.FC<PropsType> = ({ count, state, dispatch }) => {
     //     dispatch(setOrdering(value as PostsOrder));
     // }
 
-    // const handleChangeLimit = (value: string) => {
-    //     setLimit(+value);
-    // }
+    const handleChangeLimit = (value: string) => {
+        dispatch(setLimit(+value));
+    }
+
 
     const handleChangePage = (event: React.ChangeEvent<unknown>, value: number) => {
         dispatch(setPage(value));
@@ -67,15 +71,7 @@ const NewsFilter: React.FC<PropsType> = ({ count, state, dispatch }) => {
                 <MenuItem value={PostsOrder.dateDesc}>DESC date</MenuItem>
             </Select> */}
 
-            {/* <Select
-                label="Posts per page"
-                value={state.limit.toString()}
-                setValue={handleChangeLimit}
-            >
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
-            </Select> */}
+
 
             <Pagination
                 className='pagination'
@@ -84,6 +80,15 @@ const NewsFilter: React.FC<PropsType> = ({ count, state, dispatch }) => {
                 count={Math.ceil(count / state.limit)}
 
             />
+            <Select
+                label="News per page"
+                value={state.limit.toString()}
+                setValue={handleChangeLimit}
+            >
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
+            </Select>
         </Paper>
     )
 }
