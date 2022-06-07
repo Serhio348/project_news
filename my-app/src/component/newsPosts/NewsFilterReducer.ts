@@ -21,7 +21,17 @@ export const NewsFilterReducer = (state: PostsFilterType, action: PostsFilterAct
                 page: 1,
                 limit: action.payload,
             }
-
+        case PostsFilterActionTypes.SET_TITLE_TYPE: {
+            const numValue = action.payload
+            if (isNaN(numValue.length)) {
+                return state;
+            }
+            const title = numValue.length > 0 ? numValue : undefined;
+            return {
+                ...state,
+                title,
+            }
+        }
 
         default: return state;
     }

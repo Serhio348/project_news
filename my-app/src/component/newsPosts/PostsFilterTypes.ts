@@ -1,7 +1,7 @@
 export enum PostsFilterActionTypes {
     SET_PAGE_TYPE = "SET_PAGE_TYPE",
     SET_LIMIT_TYPE = "SET_LIMIT_TYPE",
-    SET_NEWSSITE_TYPE = "SET_NEWSSITE_TYPE",
+    SET_TITLE_TYPE = "SET_TITLE_TYPE",
 }
 
 type SetPageAction = {
@@ -14,21 +14,21 @@ type SetLimitAction = {
     payload: number,
 }
 
-type SetNewsSiteAction = {
-    type: PostsFilterActionTypes.SET_NEWSSITE_TYPE,
+type SetTitleAction = {
+    type: PostsFilterActionTypes.SET_TITLE_TYPE,
     payload: string,
 }
 
 export type PostsFilterAction =
     SetPageAction
     | SetLimitAction
-    | SetNewsSiteAction
+    | SetTitleAction
 
 type PostsFilterType = {
     limit: number
     page: number
     start?: number
-    newsSite?: string
+    title?: string
 }
 
 export default PostsFilterType;

@@ -7,7 +7,6 @@ import { initialState, NewsFilterReducer } from './NewsFilterReducer';
 import "./NewsPosts.scss";
 import NewsFilter from './NewsFilter';
 
-
 type PropsType = {}
 
 const NewsPosts: React.FC<PropsType> = () => {
@@ -18,16 +17,12 @@ const NewsPosts: React.FC<PropsType> = () => {
     const error = useSelector(state => state.newsPosts.error)
     const count = useSelector(state => state.newsPosts.count)
 
-
-    // const state = useSelector(state => state.newsFilterPosts.dataFilter)
-
     useEffect(() => {
         fetchPosts(state)
     }, [state])
 
     return (
         <div className='posts-container'>
-
             <div className='cards'>
                 {data.map((item) => <NewsCard key={item.id} data={item} />)}
             </div>
@@ -39,9 +34,6 @@ const NewsPosts: React.FC<PropsType> = () => {
                 dispatch={dispatch}
             />
         </div>
-
     )
 }
-
-
 export default NewsPosts;
