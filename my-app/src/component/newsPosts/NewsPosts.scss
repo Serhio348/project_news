@@ -1,6 +1,11 @@
 .posts-container {
   margin: 48px;
 
+  .pagination {
+    display: flex;
+    justify-content: center;
+  }
+
   .cards {
     display: flex;
     align-items: stretch;

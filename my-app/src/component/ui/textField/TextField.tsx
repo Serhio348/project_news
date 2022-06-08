@@ -6,7 +6,8 @@ type PropsType = {
     autofocus?: boolean
     label: string
     type?: string
-    value: string
+    value?: string
+    placeholder?: string
     setValue: (value: string) => void
 }
 
@@ -15,6 +16,7 @@ const TextField: React.FC<PropsType> = ({
     label,
     type = "text",
     value,
+    placeholder,
     setValue,
 }) => {
 
@@ -40,6 +42,7 @@ const TextField: React.FC<PropsType> = ({
                 onChange={handleChange}
                 className="input"
                 type={type}
+                placeholder={placeholder}
             />
         </div>
     )

@@ -1,15 +1,7 @@
-export enum PostsOrder {
-    idAsc = "id",
-    idDesc = "-id",
-    dateAsc = "date",
-    dateDesc = "-date",
-}
-
 export enum PostsFilterActionTypes {
     SET_PAGE_TYPE = "SET_PAGE_TYPE",
     SET_LIMIT_TYPE = "SET_LIMIT_TYPE",
-    SET_ORDER_TYPE = "SET_ORDER_TYPE",
-    SET_NEWSSITE_TYPE = "SET_NEWSSITE_TYPE",
+    SET_TITLE_TYPE = "SET_TITLE_TYPE",
 }
 
 type SetPageAction = {
@@ -22,27 +14,21 @@ type SetLimitAction = {
     payload: number,
 }
 
-type SetOrderAction = {
-    type: PostsFilterActionTypes.SET_ORDER_TYPE,
-    payload: PostsOrder,
-}
-
-type SetNewsSiteAction = {
-    type: PostsFilterActionTypes.SET_NEWSSITE_TYPE,
+type SetTitleAction = {
+    type: PostsFilterActionTypes.SET_TITLE_TYPE,
     payload: string,
 }
 
 export type PostsFilterAction =
     SetPageAction
     | SetLimitAction
-    | SetNewsSiteAction
-    | SetOrderAction
+    | SetTitleAction
 
 type PostsFilterType = {
     limit: number
-    page?: number
-    newsSite?: string
-    ordering?: PostsOrder
+    page: number
+    start?: number
+    title?: string
 }
 
 export default PostsFilterType;

@@ -5,5 +5,4 @@ const reducer = {
     newsPosts: newsPostsReducer,
     newsPost: newsPostReducer,
 }
-
 export default reducer;

@@ -35,7 +35,7 @@
 
   .links {
     display: flex;
-
+    align-items: center;
     li {
       &:not(:last-child) {
         margin-right: 24px;
@@ -44,11 +44,14 @@
 
     a {
       color: #ffffff;
-
+      text-decoration: none;
       &:hover {
         color: #b0adad;
       }
     }
+  }
+  .seach-news {
+    margin: auto;
   }
 }
 ._active {
