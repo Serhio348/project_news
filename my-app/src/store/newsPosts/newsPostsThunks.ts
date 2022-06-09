@@ -11,11 +11,14 @@ type FetchPostsType = {
 }
 export const fetchPosts = createAsyncThunk<FetchPostsType, PostsFilterType, { rejectValue: string }>(
     "newsPosts",
-    async ({ page, limit, title }, thunkApi) => {
+    async ({ page, limit, title, sorting }, thunkApi) => {
         const start = limit * (page - 1);
-        let url = `${URL}?_limit=${limit}&_start=${start}`;
+        let url = `${URL}?_limit=${limit}`;
         if (title) {
             url = `https://api.spaceflightnewsapi.net/v3/articles?title_contains=${title}`;
+        }
+        if (sorting) {
+            url += `&_sort=${sorting}&_start=${start}`;
         }
         try {
             const response = await axios.get(url);

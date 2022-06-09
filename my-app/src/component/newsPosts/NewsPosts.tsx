@@ -6,6 +6,7 @@ import { initialState, NewsFilterReducer } from './NewsFilterReducer';
 
 import "./NewsPosts.scss";
 import NewsFilter from './NewsFilter';
+import SortingNewsFilter from './SortingNewsFilter';
 
 type PropsType = {}
 
@@ -23,6 +24,10 @@ const NewsPosts: React.FC<PropsType> = () => {
 
     return (
         <div className='posts-container'>
+            <SortingNewsFilter
+                dispatch={dispatch}
+                state={state}
+            />
             <div className='cards'>
                 {data.map((item) => <NewsCard key={item.id} data={item} />)}
             </div>

@@ -1,10 +1,9 @@
 .select-container {
-  flex-grow: 1;
-  min-width: 200px;
+  width: 120px;
 
   .label {
     margin-bottom: 4px;
-    color: rgb(202, 198, 198);
+    color: rgb(171, 169, 169);
     font-size: 16px;
   }
 
@@ -14,18 +13,13 @@
   }
 
   .MuiSelect-select {
-    border: 1px solid rgb(129, 125, 125) !important;
     padding: 8px 16px;
+    color: rgb(179, 176, 176);
     height: 15px !important;
     min-height: 15px !important;
     line-height: initial;
 
-    &:hover {
-      border-color: rgb(129, 125, 125);
-    }
-
     &[aria-expanded="true"] {
-      border-color: rgb(129, 125, 125);
       outline: 1px solid rgb(129, 125, 125) !important;
     }
   }
