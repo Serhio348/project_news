@@ -1,13 +1,11 @@
-import PostsFilterType, { PostsFilterActionTypes, PostsFilterAction } from "./PostsFilterTypes";
+import PostsFilterType, { PostsFilterActionTypes, PostsFilterAction, NewsDate } from "./PostsFilterTypes";
 
 
 export const initialState: PostsFilterType = {
     page: 1,
     limit: 10,
-
-
+    sorting: NewsDate.date,
 }
-
 export const NewsFilterReducer = (state: PostsFilterType, action: PostsFilterAction): PostsFilterType => {
     switch (action.type) {
         case PostsFilterActionTypes.SET_PAGE_TYPE:
@@ -21,6 +19,11 @@ export const NewsFilterReducer = (state: PostsFilterType, action: PostsFilterAct
                 page: 1,
                 limit: action.payload,
             }
+        case PostsFilterActionTypes.SET_SORT_TYPE:
+            return {
+                ...state,
+                sorting: action.payload
+            }
         case PostsFilterActionTypes.SET_TITLE_TYPE: {
             const numValue = action.payload
             if (isNaN(numValue.length)) {
@@ -32,7 +35,6 @@ export const NewsFilterReducer = (state: PostsFilterType, action: PostsFilterAct
                 title,
             }
         }
-
         default: return state;
     }
 }

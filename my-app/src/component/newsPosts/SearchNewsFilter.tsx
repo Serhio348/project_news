@@ -2,9 +2,6 @@ import React from 'react';
 import PostsFilterType from './PostsFilterTypes';
 import { setTitle } from './NewsFilterActionCreators';
 import TextField from '../ui/textField/TextField';
-import { InputGroup } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 
 type PropsType = {
     state: PostsFilterType,

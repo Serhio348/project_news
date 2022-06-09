@@ -4,6 +4,7 @@ import { ReactComponent as LogoIcon } from "../../assets/logo.svg";
 import { useActions } from '../hooks/useActions';
 import { initialState, NewsFilterReducer } from '../newsPosts/NewsFilterReducer';
 import SearchNewsFilter from '../newsPosts/SearchNewsFilter';
+import SortingNewsFilter from '../newsPosts/SortingNewsFilter';
 
 import "./Header.scss"
 
@@ -18,13 +19,12 @@ const Header: React.FC = () => {
     useEffect(() => {
         fetchPosts(state)
     }, [state]);
-
     return (
         <nav className="header-container">
             <div className="logo">
                 <LogoIcon />
                 <div className="app-name">
-                    Space News
+                    Space World
                 </div>
             </div>
             <ul className="links">

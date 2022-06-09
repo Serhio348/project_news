@@ -1,4 +1,4 @@
-import { PostsFilterAction, PostsFilterActionTypes } from "./PostsFilterTypes";
+import { NewsDate, PostsFilterAction, PostsFilterActionTypes } from "./PostsFilterTypes";
 
 
 export const setPage = (value: number): PostsFilterAction => ({
@@ -11,5 +11,9 @@ export const setLimit = (value: number): PostsFilterAction => ({
 });
 export const setTitle = (value: string): PostsFilterAction => ({
     type: PostsFilterActionTypes.SET_TITLE_TYPE,
+    payload: value,
+});
+export const setSorting = (value: NewsDate): PostsFilterAction => ({
+    type: PostsFilterActionTypes.SET_SORT_TYPE,
     payload: value,
 });
