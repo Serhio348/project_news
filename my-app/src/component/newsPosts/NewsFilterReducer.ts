@@ -4,7 +4,7 @@ import PostsFilterType, { PostsFilterActionTypes, PostsFilterAction, NewsDate } 
 export const initialState: PostsFilterType = {
     page: 1,
     limit: 10,
-    sorting: NewsDate.date,
+    sorting: NewsDate.title,
 }
 export const NewsFilterReducer = (state: PostsFilterType, action: PostsFilterAction): PostsFilterType => {
     switch (action.type) {
