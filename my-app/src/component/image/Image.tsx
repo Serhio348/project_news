@@ -5,8 +5,6 @@ import "./Image.scss";
 type PropsType = {
     src?: string
 }
-
-
 const Image: React.FC<PropsType> = ({ src }) => {
 
     const [error, setError] = useState(false);
@@ -14,7 +12,6 @@ const Image: React.FC<PropsType> = ({ src }) => {
     const onError = () => {
         setError(true);
     }
-
     return (
         <div className='post-card-container'>
             {!!src && !error

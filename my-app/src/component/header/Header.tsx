@@ -1,24 +1,21 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as LogoIcon } from "../../assets/logo.svg";
-import { useActions } from '../hooks/useActions';
 import { initialState, NewsFilterReducer } from '../newsPosts/NewsFilterReducer';
 import SearchNewsFilter from '../newsPosts/SearchNewsFilter';
-import SortingNewsFilter from '../newsPosts/SortingNewsFilter';
+
 
 import "./Header.scss"
 
 const LINKS = [
     { url: "/newsPosts", text: "News" },
+    { url: "/blogsPosts", text: "Blogs" },
     { url: "/login", text: "Login" },
     { url: "/registration", text: "Registration" }
 ]
 const Header: React.FC = () => {
     const [state, dispatch] = useReducer(NewsFilterReducer, initialState)
-    const { fetchPosts } = useActions()
-    useEffect(() => {
-        fetchPosts(state)
-    }, [state]);
+
     return (
         <nav className="header-container">
             <div className="logo">

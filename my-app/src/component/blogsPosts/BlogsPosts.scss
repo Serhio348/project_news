@@ -1,0 +1,21 @@
+.posts-container {
+  margin: 48px;
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cards {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+.select-filter {
+  display: flex;
+  justify-content: end;
+  border-bottom: 1px solid rgb(172, 169, 169);
+}
