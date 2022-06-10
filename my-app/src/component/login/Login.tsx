@@ -3,16 +3,21 @@ import FormValuesType from "../../types/formValuesType";
 import Button from "@mui/material/Button";
 import FormCard from "../ui/formCard/FormCard";
 import FormTextField from "../ui/formTextField/FormTextField";
+import { useActions } from "../hooks/useActions";
+import { useSelector } from "../hooks/useSelector";
 
 const Registration: React.FC = () => {
     const [values, setValues] = useState<FormValuesType>({});
-
-    const handleSubmit = () => {
-        console.log(values);
+    const { createTokens } = useActions()
+    const loading = useSelector(state => state.auth.loading)
+    const error = useSelector(state => state.auth.error)
+    const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+        createTokens(values);
     }
 
     return (
-        <FormCard header="Login">
+        <FormCard header="Login" loading={loading}>
             <FormTextField
                 autofocus
                 label="Email"
@@ -28,6 +33,11 @@ const Registration: React.FC = () => {
                 values={values}
                 setValues={setValues}
             />
+            {error &&
+                <div className="form-error">
+                    No active account found with the given credentials
+                </div>
+            }
             <Button
                 variant="contained"
                 onClick={handleSubmit}
