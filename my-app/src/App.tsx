@@ -1,15 +1,14 @@
-import React, { useEffect, useReducer } from 'react';
+import React from 'react';
 import Header from './component/header/Header';
 import NewsPosts from './component/newsPosts/NewsPosts';
 import Login from './component/login/Login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Registration from './component/registration/Registration';
 import NewsPost from './component/newsPost/newsPost';
-import { initialState, NewsFilterReducer } from './component/newsPosts/NewsFilterReducer';
-import { useActions } from './component/hooks/useActions';
+import BlogsPost from './component/blogsPost/BlogsPost';
+import BlogsPosts from './component/blogsPosts/BlogsPosts';
 
 import './App.scss';
-import { Paper } from '@mui/material';
 
 const App: React.FC = () => {
   return (
@@ -24,7 +23,12 @@ const App: React.FC = () => {
               <Route index element={<NewsPosts />} />
               <Route path=":id" element={<NewsPost />} />
             </Route>
+            <Route path="blogsPosts">
+              <Route index element={<BlogsPosts />} />
+              <Route path=":id" element={<BlogsPost />} />
+            </Route>
             <Route path="*" element={<NewsPosts />} />
+            <Route path="*" element={<BlogsPosts />} />
           </Routes>
         </div>
       </div>

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NewsType from '../../../types/NewsType';
+import Image from '../../image/Image';
 
-
-import "./NewsCard.scss";
+import "./BlogsCard.scss";
 
 type PropsType = {
     data: NewsType
 }
-const NewsCard: React.FC<PropsType> = ({ data }) => {
+const BlogsCard: React.FC<PropsType> = ({ data }) => {
 
     return (
         <div className='posts-card-container'>
@@ -23,7 +23,7 @@ const NewsCard: React.FC<PropsType> = ({ data }) => {
                 </div>
             }
 
-            <Link to={`/newsPosts/${data.id}`}>
+            <Link to={`/blogsPosts/${data.id}`}>
                 <div className='title'>
                     {data.title}
 
@@ -41,4 +41,4 @@ const NewsCard: React.FC<PropsType> = ({ data }) => {
     )
 }
 
-export default NewsCard;
+export default BlogsCard;

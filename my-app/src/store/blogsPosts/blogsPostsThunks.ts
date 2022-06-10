@@ -3,19 +3,20 @@ import axios from "axios";
 import PostsFilterType from "../../component/newsPosts/PostsFilterTypes";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const URL = "https://api.spaceflightnewsapi.net/v3/articles";
+const URL = "https://api.spaceflightnewsapi.net/v3/blogs";
 
 type FetchPostsType = {
     data: NewsType[],
     count: number,
 }
-export const fetchPosts = createAsyncThunk<FetchPostsType, PostsFilterType, { rejectValue: string }>(
-    "newsPosts",
+
+export const fetchBlogsPosts = createAsyncThunk<FetchPostsType, PostsFilterType, { rejectValue: string }>(
+    "blogsPosts",
     async ({ page, limit, title, sorting }, thunkApi) => {
         const start = limit * (page - 1);
         let url = `${URL}?_limit=${limit}`;
         if (title) {
-            url = `https://api.spaceflightnewsapi.net/v3/articles?title_contains=${title}`;
+            url = `https://api.spaceflightnewsapi.net/v3/blogs?title_contains=${title}`;
         }
         if (sorting) {
             url += `&_sort=${sorting}&_start=${start}`;
@@ -31,4 +32,3 @@ export const fetchPosts = createAsyncThunk<FetchPostsType, PostsFilterType, { re
         }
     }
 )
-

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import NewsType from "../../types/NewsType"
-import { fetchPosts } from "./newsPostsThunks";
+import { fetchBlogsPosts } from "./blogsPostsThunks";
 
 type StoreType = {
     data: NewsType[],
@@ -15,21 +15,21 @@ export const initialState: StoreType = {
     limit: 10,
     count: 0,
 }
-const newsPostsSlice = createSlice({
-    name: "newsPosts",
+const blogsPostsSlice = createSlice({
+    name: "blogsPosts",
     initialState,
     reducers: {},
     extraReducers: builder => {
-        builder.addCase(fetchPosts.pending, (state) => {
+        builder.addCase(fetchBlogsPosts.pending, (state) => {
             state.loading = true;
             state.error = undefined;
             state.data = [];
         });
-        builder.addCase(fetchPosts.rejected, (state, { payload }) => {
+        builder.addCase(fetchBlogsPosts.rejected, (state, { payload }) => {
             state.loading = false;
             state.error = payload;
         });
-        builder.addCase(fetchPosts.fulfilled, (state, { payload }) => {
+        builder.addCase(fetchBlogsPosts.fulfilled, (state, { payload }) => {
             state.loading = false;
             state.data = payload.data;
             state.count = payload.count;
@@ -37,8 +37,8 @@ const newsPostsSlice = createSlice({
     }
 });
 
-export const newsPostsReducer = newsPostsSlice.reducer;
-export const newsPostsActions = {
-    ...newsPostsSlice.actions,
-    fetchPosts,
+export const blogsPostsReducer = blogsPostsSlice.reducer;
+export const blogsPostsActions = {
+    ...blogsPostsSlice.actions,
+    fetchBlogsPosts
 };

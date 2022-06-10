@@ -2,19 +2,18 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useActions } from '../hooks/useActions';
 import { useSelector } from '../hooks/useSelector';
-
 import Image from '../image/Image';
 
-const NewsPost: React.FC = () => {
+const BlogsPost: React.FC = () => {
     const { id } = useParams()
-    const data = useSelector(state => state.newsPost.data);
-    const loading = useSelector(state => state.newsPost.loading)
-    const error = useSelector(state => state.newsPost.error)
+    const data = useSelector(state => state.blogsPost.data);
+    const loading = useSelector(state => state.blogsPost.loading)
+    const error = useSelector(state => state.blogsPost.error)
 
-    const { fetchPost } = useActions()
+    const { fetchblogsPost } = useActions()
 
     useEffect(() => {
-        fetchPost(id);
+        fetchblogsPost(id);
     }, [id]);
 
     if (loading) {
@@ -50,4 +49,4 @@ const NewsPost: React.FC = () => {
         </div>
     </div>);
 }
-export default NewsPost;
+export default BlogsPost;
