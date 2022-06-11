@@ -3,13 +3,13 @@ import Header from './component/header/Header';
 import NewsPosts from './component/newsPosts/NewsPosts';
 import Login from './component/login/Login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Registration from './component/registration/Registration';
+import Registration from './component/login/SignUp';
 import NewsPost from './component/newsPost/newsPost';
 import BlogsPost from './component/blogsPost/BlogsPost';
 import BlogsPosts from './component/blogsPosts/BlogsPosts';
 
 import './App.scss';
-import Login1 from './component/login/Login1';
+
 
 
 
@@ -21,7 +21,7 @@ const App: React.FC = () => {
 
         <div className="app-content">
           <Routes>
-            <Route path="/login" element={<Login1 />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/registration" element={<Registration />} />
             <Route path="newsPosts">
               <Route index element={<NewsPosts />} />

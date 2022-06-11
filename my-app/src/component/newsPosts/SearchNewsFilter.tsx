@@ -7,7 +7,6 @@ type PropsType = {
     state: PostsFilterType,
     dispatch: any,
 }
-
 const SearchNewsFilter: React.FC<PropsType> = ({ state, dispatch }) => {
     const updateTitle = (value: string) => {
         dispatch(setTitle(value));

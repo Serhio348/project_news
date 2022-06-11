@@ -1,17 +1,15 @@
 
-import { useDispatch } from 'react-redux'
-import { Form } from '../ui/formAuthorization/authForm'
 import { setUser } from '../../store/auth/userSlice'
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
-import { useActions } from '../hooks/useActions';
 import { useAppDispatch } from '../hooks/redux-hooks';
+import { FormRegin } from '../ui/formAuthorization/reginForm';
+import { Link } from 'react-router-dom';
 
-const SignUp = () => {
-  const dispatch = useAppDispatch();
+const Registration = () => {
+  const dispatch = useAppDispatch()
   const navigate = useNavigate();
-
-  const handleRegister = (email: string, password: string) => {
+  const handleRegin = (email: string, password: string) => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
@@ -23,15 +21,22 @@ const SignUp = () => {
         }));
         navigate('/')
       })
-      .catch(console.error)
+      .catch(() => alert("invalid user!"))
   }
   return (
+    <div>
+      <FormRegin
+        title="register"
+        handleClick={handleRegin}
+      />
+      <p>
+        Already have an account? <Link to="/login">Sign in</Link>
+      </p>
 
-    <Form
-      title="register"
-      handleClick={handleRegister}
-    />
+    </div>
+
+
   )
 }
 
-export default SignUp
+export default Registration

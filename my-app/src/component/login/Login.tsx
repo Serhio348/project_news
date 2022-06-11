@@ -1,54 +1,41 @@
-import React, { useState } from "react";
-import FormValuesType from "../../types/formValuesType";
-import Button from "@mui/material/Button";
-import FormCard from "../ui/formCard/FormCard";
-import FormTextField from "../ui/formTextField/FormTextField";
-import { useActions } from "../hooks/useActions";
-import { useSelector } from "../hooks/useSelector";
-import Login1 from "./Login1";
 
+import { useDispatch } from 'react-redux'
+import { Form } from '../ui/formAuthorization/authForm'
+import { setUser } from '../../store/auth/userSlice'
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
+import { useActions } from '../hooks/useActions';
+import { useAppDispatch, useAppSelector } from '../hooks/redux-hooks';
+import { Link } from 'react-router-dom';
+import '../ui/formCard/FormCard.scss'
 
-const Login: React.FC = () => {
-    const [values, setValues] = useState<FormValuesType>({});
+const Login = () => {
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate();
+  const handleLogin = (email: string, password: string) => {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then(({ user }) => {
+        console.log(user);
+        dispatch(setUser({
+          email: user.email,
+          id: user.uid,
+          token: user.refreshToken
+        }));
+        navigate('/')
+      })
+      .catch(() => alert("invalid user!"))
+  }
+  return (
+    <div>
+      <Form
+        title="Log in"
+        handleClick={handleLogin}
+      />
+      <p className='textbuttom'> <Link to="/registration">Register</Link></p>
+    </div>
 
-    const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault();
-
-    }
-
-    return (
-
-        <FormCard header="Login" >
-
-            <FormTextField
-                autofocus
-                label="Email"
-                type="email"
-                name="email"
-                values={values}
-                setValues={setValues}
-            />
-            <FormTextField
-                label="Password"
-                type="password"
-                name="password"
-                values={values}
-                setValues={setValues}
-            />
-            {
-                <div className="form-error">
-                    No active account found with the given credentials
-                </div>
-            }
-            <Button
-                variant="contained"
-                onClick={handleSubmit}
-                className="button-click"
-            >
-                login.submit
-            </Button>
-        </FormCard>
-    )
+  )
 }
 
-export default Login;
+export default Login

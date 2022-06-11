@@ -11,7 +11,7 @@ const LINKS = [
     { url: "/newsPosts", text: "News" },
     { url: "/blogsPosts", text: "Blogs" },
     { url: "/login", text: "Login" },
-    { url: "/registration", text: "Registration" }
+
 ]
 const Header: React.FC = () => {
     const [state, dispatch] = useReducer(NewsFilterReducer, initialState)
