@@ -1,0 +1,31 @@
+.text-field-container {
+  .label {
+    margin-bottom: 4px;
+    color: var(--header-color);
+    font-size: 16px;
+  }
+  .Title {
+    font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    text-rendering: optimizeLegibility;
+    margin-bottom: 4px;
+    color: #000000;
+  }
+
+  .input {
+    border: 1px solid var(--primary-color3);
+    border-radius: 3px;
+    padding: 8px 16px;
+    outline: none;
+
+    &:hover {
+      border-color: var(--primary-color0);
+    }
+
+    &:focus {
+      border-color: var(--primary-color0);
+      outline: 1px solid var(--primary-color0);
+    }
+  }
+}

@@ -30,7 +30,6 @@ const TextField: React.FC<PropsType> = ({
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value)
     }
-
     return (
         <div className="text-field-container">
             <div className="label">

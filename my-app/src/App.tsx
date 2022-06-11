@@ -9,15 +9,19 @@ import BlogsPost from './component/blogsPost/BlogsPost';
 import BlogsPosts from './component/blogsPosts/BlogsPosts';
 
 import './App.scss';
+import Login1 from './component/login/Login1';
+
+
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
       <div className="app-container">
         <Header />
+
         <div className="app-content">
           <Routes>
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login1 />} />
             <Route path="/registration" element={<Registration />} />
             <Route path="newsPosts">
               <Route index element={<NewsPosts />} />
@@ -31,8 +35,10 @@ const App: React.FC = () => {
             <Route path="*" element={<BlogsPosts />} />
           </Routes>
         </div>
+
       </div>
     </BrowserRouter>
+
   );
 };
 

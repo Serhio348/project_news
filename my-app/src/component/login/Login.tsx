@@ -5,19 +5,21 @@ import FormCard from "../ui/formCard/FormCard";
 import FormTextField from "../ui/formTextField/FormTextField";
 import { useActions } from "../hooks/useActions";
 import { useSelector } from "../hooks/useSelector";
+import Login1 from "./Login1";
 
-const Registration: React.FC = () => {
+
+const Login: React.FC = () => {
     const [values, setValues] = useState<FormValuesType>({});
-    const { createTokens } = useActions()
-    const loading = useSelector(state => state.auth.loading)
-    const error = useSelector(state => state.auth.error)
+
     const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
-        createTokens(values);
+
     }
 
     return (
-        <FormCard header="Login" loading={loading}>
+
+        <FormCard header="Login" >
+
             <FormTextField
                 autofocus
                 label="Email"
@@ -33,7 +35,7 @@ const Registration: React.FC = () => {
                 values={values}
                 setValues={setValues}
             />
-            {error &&
+            {
                 <div className="form-error">
                     No active account found with the given credentials
                 </div>
@@ -49,4 +51,4 @@ const Registration: React.FC = () => {
     )
 }
 
-export default Registration;
+export default Login;
