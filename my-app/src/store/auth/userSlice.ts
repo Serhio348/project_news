@@ -1,15 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 type StoreType = {
-    email: any,
-    token: any,
-    id: any,
+    email: string,
+    token: string,
+    id: string,
 
 }
 export const initialState: StoreType = {
-    email: null,
-    token: null,
-    id: null,
+    email: "",
+    token: "",
+    id: "",
+
 }
 const userSlice = createSlice({
     name: "auth",
@@ -21,9 +22,9 @@ const userSlice = createSlice({
             state.id = action.payload.id;
         },
         removeUser(state) {
-            state.email = null;
-            state.token = null;
-            state.id = null;
+            state.email = "";
+            state.token = "";
+            state.id = "";
         }
     }
 })

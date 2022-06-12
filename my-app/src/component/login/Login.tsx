@@ -1,13 +1,12 @@
-
-import { useDispatch } from 'react-redux'
 import { Form } from '../ui/formAuthorization/authForm'
 import { setUser } from '../../store/auth/userSlice'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
-import { useActions } from '../hooks/useActions';
-import { useAppDispatch, useAppSelector } from '../hooks/redux-hooks';
+import { useAppDispatch } from '../hooks/redux-hooks';
 import { Link } from 'react-router-dom';
+
 import '../ui/formCard/FormCard.scss'
+import Storage from '../../helpers/Storage';
 
 const Login = () => {
   const dispatch = useAppDispatch()
@@ -22,6 +21,7 @@ const Login = () => {
           id: user.uid,
           token: user.refreshToken
         }));
+        Storage.set("acces", user)
         navigate('/')
       })
       .catch(() => alert("invalid user!"))
@@ -34,8 +34,6 @@ const Login = () => {
       />
       <p className='textbuttom'> <Link to="/registration">Register</Link></p>
     </div>
-
   )
 }
-
 export default Login

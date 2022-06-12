@@ -6,6 +6,7 @@ import SearchNewsFilter from '../newsPosts/SearchNewsFilter';
 
 
 import "./Header.scss"
+import Username from './username/Username';
 
 const LINKS = [
     { url: "/newsPosts", text: "News" },
@@ -40,6 +41,7 @@ const Header: React.FC = () => {
                         state={state}
                     />
                 </div>
+                <Username />
             </div>
         </nav >
     );
