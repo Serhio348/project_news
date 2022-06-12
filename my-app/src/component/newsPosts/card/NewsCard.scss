@@ -78,3 +78,19 @@
     color: #c1c2c4;
   }
 }
+.actions-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+._liked {
+  color: #33aa33;
+}
+
+._disliked {
+  color: #e90e0e;
+}
+
+._marked {
+  color: #decc09;
+}

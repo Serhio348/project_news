@@ -1,6 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { NewsGrade } from "../../enums/NewsGrade";
 import NewsType from "../../types/NewsType"
 import { fetchPosts } from "./newsPostsThunks";
+
+type GradesType = {
+    [prop: number]: NewsGrade;
+};
 
 type StoreType = {
     data: NewsType[],
@@ -8,17 +13,34 @@ type StoreType = {
     error?: string,
     limit: number,
     count: number,
+    grades: GradesType,
 }
 export const initialState: StoreType = {
     data: [],
     loading: false,
     limit: 10,
     count: 0,
+    grades: {},
 }
 const newsPostsSlice = createSlice({
     name: "newsPosts",
     initialState,
-    reducers: {},
+    reducers: {
+        likeNews: (state, { payload }: PayloadAction<number>) => {
+            if (state.grades[payload] === NewsGrade.LIKE) {
+                delete state.grades[payload]
+            } else {
+                state.grades[payload] = NewsGrade.LIKE
+            }
+        },
+        dislikeNews: (state, { payload }: PayloadAction<number>) => {
+            if (state.grades[payload] === NewsGrade.DISLAKE) {
+                delete state.grades[payload]
+            } else {
+                state.grades[payload] = NewsGrade.DISLAKE
+            }
+        }
+    },
     extraReducers: builder => {
         builder.addCase(fetchPosts.pending, (state) => {
             state.loading = true;
