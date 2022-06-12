@@ -17,6 +17,7 @@ const getLinks = (logged: boolean) => ([
     { url: "/registration", text: "Registration" },
     ...(!logged ? [] : [
         { url: "/blogsPosts", text: "Blogs" },
+        { url: "/NewsPosts", text: "Bookmark" },
     ])
 ])
 const Header: React.FC = () => {
