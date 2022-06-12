@@ -15,13 +15,18 @@ type PropsType = {
     data: NewsType
 }
 const NewsCard: React.FC<PropsType> = ({ data }) => {
-    const { likeNews, dislikeNews } = useActions()
+    const { likeNews, dislikeNews, markNews } = useActions()
     const grades = useSelector(state => state.newsPosts.grades)
     const isLiked = grades[data.id] === NewsGrade.LIKE;
     const isDisliked = grades[data.id] === NewsGrade.DISLAKE;
+
+    const marks = useSelector(state => state.newsPosts.marks);
+    const isMarked = marks.includes(data.id)
+
+
     const handleClickLike = () => likeNews(data.id);
     const handleClickDislike = () => dislikeNews(data.id);
-    const handleClickMark = () => markPost(data.id);
+    const handleClickMark = () => markNews(data.id);
 
     return (
         <div className='posts-card-container'>

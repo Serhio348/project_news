@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { NewsGrade } from "../../enums/NewsGrade";
+import Storage from "../../helpers/Storage";
 import NewsType from "../../types/NewsType"
 import { fetchPosts } from "./newsPostsThunks";
 
@@ -14,32 +15,45 @@ type StoreType = {
     limit: number,
     count: number,
     grades: GradesType,
+    marks: number[],
 }
 export const initialState: StoreType = {
     data: [],
     loading: false,
     limit: 10,
     count: 0,
-    grades: {},
+    grades: Storage.get("grades", {}),
+    marks: Storage.get("marks", []),
 }
 const newsPostsSlice = createSlice({
     name: "newsPosts",
     initialState,
     reducers: {
-        likeNews: (state, { payload }: PayloadAction<number>) => {
-            if (state.grades[payload] === NewsGrade.LIKE) {
-                delete state.grades[payload]
+        likeNews: (state, { payload: newsId }: PayloadAction<number>) => {
+            if (state.grades[newsId] === NewsGrade.LIKE) {
+                delete state.grades[newsId]
             } else {
-                state.grades[payload] = NewsGrade.LIKE
+                state.grades[newsId] = NewsGrade.LIKE
             }
+            Storage.set("grades", state.grades)
         },
-        dislikeNews: (state, { payload }: PayloadAction<number>) => {
-            if (state.grades[payload] === NewsGrade.DISLAKE) {
-                delete state.grades[payload]
+        dislikeNews: (state, { payload: newsId }: PayloadAction<number>) => {
+            if (state.grades[newsId] === NewsGrade.DISLAKE) {
+                delete state.grades[newsId]
             } else {
-                state.grades[payload] = NewsGrade.DISLAKE
+                state.grades[newsId] = NewsGrade.DISLAKE
             }
-        }
+            Storage.set("grades", state.grades)
+        },
+        markNews: (state, { payload: newsId }: PayloadAction<number>) => {
+
+            if (state.marks.includes(newsId)) {
+                state.marks = state.marks.filter(id => id !== newsId);
+            } else {
+                state.marks.push(newsId);
+            }
+            Storage.set("marks", state.marks)
+        },
     },
     extraReducers: builder => {
         builder.addCase(fetchPosts.pending, (state) => {
