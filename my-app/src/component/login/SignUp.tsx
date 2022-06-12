@@ -1,12 +1,13 @@
 
-import { setUser } from '../../store/auth/userSlice'
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../hooks/redux-hooks';
 import { FormRegin } from '../ui/formAuthorization/reginForm';
 import { Link } from 'react-router-dom';
+import { useActions } from "../hooks/useActions";
 
 const Registration = () => {
+  const { setUser } = useActions()
   const dispatch = useAppDispatch()
   const navigate = useNavigate();
   const handleRegin = (email: string, password: string) => {
