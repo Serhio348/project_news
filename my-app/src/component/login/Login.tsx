@@ -1,42 +1,39 @@
-import React, { useState } from "react";
-import FormValuesType from "../../types/formValuesType";
-import Button from "@mui/material/Button";
-import FormCard from "../ui/formCard/FormCard";
-import FormTextField from "../ui/formTextField/FormTextField";
+import { Form } from '../ui/formAuthorization/authForm'
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../hooks/redux-hooks';
+import { Link } from 'react-router-dom';
 
-const Registration: React.FC = () => {
-    const [values, setValues] = useState<FormValuesType>({});
+import '../ui/formCard/FormCard.scss'
+import Storage from '../../helpers/Storage';
+import { useActions } from '../hooks/useActions';
 
-    const handleSubmit = () => {
-        console.log(values);
-    }
-
-    return (
-        <FormCard header="Login">
-            <FormTextField
-                autofocus
-                label="Email"
-                type="email"
-                name="email"
-                values={values}
-                setValues={setValues}
-            />
-            <FormTextField
-                label="Password"
-                type="password"
-                name="password"
-                values={values}
-                setValues={setValues}
-            />
-            <Button
-                variant="contained"
-                onClick={handleSubmit}
-                className="button-click"
-            >
-                login.submit
-            </Button>
-        </FormCard>
-    )
+const Login = () => {
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate();
+  const { setUser } = useActions()
+  const handleLogin = (email: string, password: string) => {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then(({ user }) => {
+        dispatch(setUser({
+          email: user.email,
+          id: user.uid,
+          token: user.refreshToken
+        }));
+        Storage.set("access", user)
+        navigate('/')
+      })
+      .catch(() => alert("invalid user!"))
+  }
+  return (
+    <div>
+      <Form
+        title="Log in"
+        handleClick={handleLogin}
+      />
+      <p className='textbuttom'> <Link to="/registration">Register</Link></p>
+    </div>
+  )
 }
-
-export default Registration;
+export default Login

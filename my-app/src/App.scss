@@ -16,3 +16,15 @@
     max-width: 100ch;
   }
 }
+.icon-button {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  margin-right: 25px;
+  path {
+    fill: #fff;
+  }
+  &:hover {
+    transform: scale(1.4);
+  }
+}

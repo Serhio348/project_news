@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import FormCard from "../ui/formCard/FormCard";
 import FormTextField from "../ui/formTextField/FormTextField";
 
+
 const Registration: React.FC = () => {
     const [values, setValues] = useState<FormValuesType>({});
 
@@ -13,6 +14,7 @@ const Registration: React.FC = () => {
 
     return (
         <FormCard header="Registration">
+
             <FormTextField
                 autofocus
                 label="Name"

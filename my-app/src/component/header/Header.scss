@@ -36,6 +36,7 @@
   .links {
     display: flex;
     align-items: center;
+    margin-right: 550px;
     li {
       &:not(:last-child) {
         margin-right: 24px;
@@ -57,4 +58,15 @@
 ._active {
   font-weight: 600;
   text-transform: uppercase;
+}
+.logo-seach {
+  margin-right: 350px;
+}
+.seach-news {
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+.header-username {
+  color: white;
 }
