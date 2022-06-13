@@ -20,6 +20,7 @@ const BlogsPosts: React.FC<PropsType> = () => {
 
     useEffect(() => {
         fetchBlogsPosts(state);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state]);
 
     return (
@@ -41,6 +42,5 @@ const BlogsPosts: React.FC<PropsType> = () => {
         </div>
     )
 }
-
 
 export default BlogsPosts;

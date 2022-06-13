@@ -1,43 +1,25 @@
 import React, { useEffect, useReducer, useState } from 'react';
-import { useSelector } from '../hooks/useSelector';
-import NewsCard from './card/NewsCard';
-import { useActions } from '../hooks/useActions';
-import { initialState, NewsFilterReducer } from './NewsFilterReducer';
+import Button from "@mui/material/Button";
+import NewsServer from './NewsServer';
+import NewsFront from './NewsFront';
 
-import "./NewsPosts.scss";
-import NewsFilter from './NewsFilter';
-import SortingNewsFilter from './SortingNewsFilter';
 
 type PropsType = {}
 
 const NewsPosts: React.FC<PropsType> = () => {
-    const [state, dispatch] = useReducer(NewsFilterReducer, initialState);
-    const { fetchPosts } = useActions()
-    const data = useSelector(state => state.newsPosts.data)
-    const loading = useSelector(state => state.newsPosts.loading)
-    const error = useSelector(state => state.newsPosts.error)
-    const count = useSelector(state => state.newsPosts.count)
 
-    useEffect(() => {
-        fetchPosts(state)
-    }, [state])
-
+    const [isServerMode, setIsServerMode] = useState(true)
+    const handleToggleMode = () => setIsServerMode((prev) => !prev)
     return (
         <div className='posts-container'>
-            <SortingNewsFilter
-                dispatch={dispatch}
-                state={state}
-            />
-            <div className='cards'>
-                {data.map((item) => <NewsCard key={item.id} data={item} />)}
+            <Button
+                variant="text"
+                onClick={handleToggleMode}
+                className="button-click"
+            > Bookmark</Button>
+            <div className="mode-container">
+                {isServerMode ? <NewsServer /> : <NewsFront />}
             </div>
-            {loading && "Loading..."}
-            {error && "Error ("}
-            <NewsFilter
-                count={count}
-                state={state}
-                dispatch={dispatch}
-            />
         </div>
     )
 }
