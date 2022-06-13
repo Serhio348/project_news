@@ -13,13 +13,13 @@ enum Mode {
 const BlogsFront: React.FC = () => {
     const [mode, setMode] = useState(Mode.LIKED);
 
-    const { fetchAllPosts } = useActions();
-    const data = useSelector(state => state.newsPosts.data);
-    const loading = useSelector(state => state.newsPosts.loading);
-    const error = useSelector(state => state.newsPosts.error);
+    const { fetchAllBlogsPosts } = useActions();
+    const data = useSelector(state => state.blogsPosts.data);
+    const loading = useSelector(state => state.blogsPosts.loading);
+    const error = useSelector(state => state.blogsPosts.error);
 
-    const grades = useSelector(state => state.newsPosts.grades);
-    const marks = useSelector(state => state.newsPosts.marks);
+    const grades = useSelector(state => state.blogsPosts.grades);
+    const marks = useSelector(state => state.blogsPosts.marks);
 
     const filterdData = data
         .filter(item => {
@@ -33,7 +33,7 @@ const BlogsFront: React.FC = () => {
             return false;
         });
     useEffect(() => {
-        fetchAllPosts();
+        fetchAllBlogsPosts();
         //eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
