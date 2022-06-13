@@ -17,7 +17,6 @@ const App: React.FC = () => {
     <BrowserRouter>
       <div className="app-container">
         <Header />
-
         <div className="app-content">
           <Routes>
             {!logged &&
