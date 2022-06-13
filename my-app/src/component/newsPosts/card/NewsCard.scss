@@ -1,11 +1,13 @@
 .posts-card-container {
-  padding: 24px;
-  background-color: var(--card-color);
-  max-width: 100%;
-  display: flex;
-  flex-direction: row;
-  border-bottom: solid 0.5px #c1c2c4;
-  align-items: flex-start;
+  .posts-card-content {
+    padding: 24px;
+    background-color: var(--card-color);
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-bottom: solid 0.5px #c1c2c4;
+    align-items: flex-start;
+  }
   .image {
     max-width: 150px;
     height: 100px;
@@ -82,11 +84,13 @@
 ._liked {
   color: #33aa33;
 }
-
 ._disliked {
   color: #e90e0e;
 }
-
 ._marked {
   color: #decc09;
+}
+.icon {
+  width: 50px;
+  height: 50px;
 }

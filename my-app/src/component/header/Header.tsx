@@ -24,9 +24,10 @@ const Header: React.FC = () => {
     const logged = useSelector(state => state.user.logged);
     const { removeUser } = useActions();
     const links = getLinks(logged);
-    const { fetchPosts } = useActions()
+    const { fetchPosts, fetchBlogsPosts } = useActions()
     useEffect(() => {
         fetchPosts(state)
+        fetchBlogsPosts(state)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state]);
 

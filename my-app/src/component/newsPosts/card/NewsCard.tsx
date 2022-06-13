@@ -28,39 +28,41 @@ const NewsCard: React.FC<PropsType> = ({ data }) => {
 
     return (
         <div className='posts-card-container'>
+            <div className='posts-card-content'>
+                {data.imageUrl
+                    ?
+                    <img src={data.imageUrl} alt="Server error" className='image' />
+                    :
+                    <div className='image-placeholder'>
+                        <div />
+                        <div />
+                    </div>
+                }
 
-            {data.imageUrl
-                ?
-                <img src={data.imageUrl} alt="Server error" className='image' />
-                :
-                <div className='image-placeholder'>
-                    <div />
-                    <div />
-                </div>
-            }
+                <Link to={`/newsPosts/${data.id}`}>
+                    <div className='title'>
+                        {data.title}
 
-            <Link to={`/newsPosts/${data.id}`}>
-                <div className='title'>
-                    {data.title}
+                    </div>
+                    <div className='date'>
+                        {data.publishedAt}
+                    </div>
+                    <div className='text'>
+                        {data.summary}
+                    </div>
+                </Link>
+            </div>
 
-                </div>
-                <div className='date'>
-                    {data.publishedAt}
-                </div>
-                <div className='text'>
-                    {data.summary}
-                </div>
-            </Link>
             <IconButton onClick={handleClickLike}>
-                <ThumbUpAltIcon fontSize="small" className={`icon ${isLiked ? "_liked" : ""}`} />
+                <ThumbUpAltIcon fontSize="medium" className={`icon ${isLiked ? "_liked" : ""}`} />
             </IconButton>
 
             <IconButton onClick={handleClickDislike}>
-                <ThumbDownAltIcon fontSize="small" className={`icon ${isDisliked ? "_disliked" : ""}`} />
+                <ThumbDownAltIcon fontSize="medium" className={`icon ${isDisliked ? "_disliked" : ""}`} />
             </IconButton>
 
             <IconButton onClick={handleClickMark}>
-                <BookmarkIcon fontSize="small" className={`icon ${isMarked ? "_marked" : ""}`} />
+                <BookmarkIcon fontSize="medium" className={`icon ${isMarked ? "_marked" : ""}`} />
             </IconButton>
 
         </div >

@@ -28,8 +28,6 @@ const blogsPostsSlice = createSlice({
     name: "blogsPosts",
     initialState,
     reducers: {
-        fetchAllPosts: () => {
-        },
         likeBlogs: (state, { payload: newsId }: PayloadAction<number>) => {
             if (state.grades[newsId] === NewsGrade.LIKE) {
                 delete state.grades[newsId]
