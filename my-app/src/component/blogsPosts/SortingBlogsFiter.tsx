@@ -1,12 +1,12 @@
 import React from 'react';
-import BlogsFilterType, { BlogsDate } from './BlogsFilterTypes';
+import PostsFilterType, { NewsDate } from '../newsPosts/PostsFilterTypes';
 import Select from '../ui/select/Select';
 import { MenuItem } from '@mui/material';
-import { setLimit, setSorting } from './BlogsFilterActionCreators';
+import { setLimit, setSorting } from '../newsPosts/NewsFilterActionCreators';
 
 
 type PropsType = {
-    state: BlogsFilterType,
+    state: PostsFilterType,
     dispatch: any,
 }
 const SortingBlogsFilter: React.FC<PropsType> = ({ state, dispatch }) => {
@@ -14,7 +14,7 @@ const SortingBlogsFilter: React.FC<PropsType> = ({ state, dispatch }) => {
         dispatch(setLimit(+value));
     }
     const handleChangeDate = (value: string) => {
-        dispatch(setSorting(value as BlogsDate));
+        dispatch(setSorting(value as NewsDate));
     }
     return (
         <div className='select-filter'>
@@ -23,9 +23,9 @@ const SortingBlogsFilter: React.FC<PropsType> = ({ state, dispatch }) => {
                 value={state.sorting}
                 setValue={handleChangeDate}
             >
-                <MenuItem value={BlogsDate.date}>by date</MenuItem>
-                <MenuItem value={BlogsDate.rating}>by rating</MenuItem>
-                <MenuItem value={BlogsDate.title}>by title</MenuItem>
+                <MenuItem value={NewsDate.date}>by date</MenuItem>
+                <MenuItem value={NewsDate.rating}>by rating</MenuItem>
+                <MenuItem value={NewsDate.title}>by title</MenuItem>
             </Select>
             <Select
                 label=""

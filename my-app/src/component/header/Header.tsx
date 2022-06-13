@@ -1,24 +1,37 @@
 import React, { useEffect, useReducer } from 'react';
 import { NavLink } from 'react-router-dom';
-import { ReactComponent as LogoIcon } from "../../assets/logo.svg";
-import { useActions } from '../hooks/useActions';
+import { useSelector } from '../hooks/useSelector';
 import { initialState, NewsFilterReducer } from '../newsPosts/NewsFilterReducer';
 import SearchNewsFilter from '../newsPosts/SearchNewsFilter';
-import SortingNewsFilter from '../newsPosts/SortingNewsFilter';
+import Username from './username/Username';
+import { ReactComponent as LogoIcon } from "../../assets/logo.svg";
+import { ReactComponent as LogoutIcon } from "../../assets/logout.svg";
+import { ReactComponent as LoginIcon } from "../../assets/login.svg";
 
 import "./Header.scss"
+import { useActions } from '../hooks/useActions';
+import { Link } from 'react-router-dom';
 
-const LINKS = [
+const getLinks = (logged: boolean) => ([
     { url: "/newsPosts", text: "News" },
-    { url: "/login", text: "Login" },
-    { url: "/registration", text: "Registration" }
-]
+    { url: "/registration", text: "Registration" },
+    ...(!logged ? [] : [
+        { url: "/blogsPosts", text: "Blogs" },
+    ])
+])
 const Header: React.FC = () => {
-    const [state, dispatch] = useReducer(NewsFilterReducer, initialState)
+    const [state, dispatch] = useReducer(NewsFilterReducer, initialState);
+    const logged = useSelector(state => state.user.logged);
+    const { removeUser } = useActions();
+    const links = getLinks(logged);
     const { fetchPosts } = useActions()
     useEffect(() => {
         fetchPosts(state)
     }, [state]);
+
+    const handleLogout = () => {
+        removeUser()
+    }
     return (
         <nav className="header-container">
             <div className="logo">
@@ -28,7 +41,7 @@ const Header: React.FC = () => {
                 </div>
             </div>
             <ul className="links">
-                {LINKS.map(({ url, text }) =>
+                {links.map(({ url, text }) =>
                     <li key={url + text}>
                         <NavLink to={url} className={({ isActive }) => isActive ? "_active" : ""}>
                             {text}
@@ -43,6 +56,21 @@ const Header: React.FC = () => {
                         state={state}
                     />
                 </div>
+                {logged ?
+                    <>
+                        <LogoutIcon
+                            className='icon-button'
+                            onClick={handleLogout} />
+                        <Username />
+                    </>
+                    :
+                    <Link to="/login">
+                        <LoginIcon
+                            className='icon-button'
+                            onClick={handleLogout} />
+                        <Username />
+                    </Link>
+                }
             </div>
         </nav >
     );
