@@ -10,7 +10,7 @@ import BlogsCard from './card/BlogsCard';
 
 type PropsType = {};
 
-const BlogsPosts: React.FC<PropsType> = () => {
+const BlogsServer: React.FC<PropsType> = () => {
     const [state, dispatch] = useReducer(NewsFilterReducer, initialState);
     const { fetchBlogsPosts } = useActions();
     const data = useSelector(state => state.blogsPosts.data);
@@ -42,5 +42,4 @@ const BlogsPosts: React.FC<PropsType> = () => {
         </div>
     )
 }
-
-export default BlogsPosts;
+export default BlogsServer;
