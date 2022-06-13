@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { NewsGrade } from "../../enums/newsGrade";
+import { NewsGrade } from "../../enums/NewsGrade";
 import Storage from "../../helpers/Storage";
 import NewsType from "../../types/NewsType"
 import { fetchAllPosts, fetchPosts } from "./newsPostsThunks";

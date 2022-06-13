@@ -7,7 +7,7 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
 import { IconButton } from '@mui/material';
 import { useActions } from '../../hooks/useActions';
 import { useSelector } from '../../hooks/useSelector';
-import { NewsGrade } from '../../../enums/newsGrade';
+import { NewsGrade } from '../../../enums/NewsGrade';
 
 import "./NewsCard.scss";
 

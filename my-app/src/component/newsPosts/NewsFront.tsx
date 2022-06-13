@@ -3,7 +3,7 @@ import { Paper, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { useActions } from '../hooks/useActions';
 import { useSelector } from '../hooks/useSelector';
 import NewsCard from './card/NewsCard';
-import { NewsGrade } from '../../enums/newsGrade';
+import { NewsGrade } from '../../enums/NewsGrade';
 
 enum Mode {
     LIKED,
