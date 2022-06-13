@@ -11,9 +11,6 @@ import BlogsPosts from './component/blogsPosts/BlogsPosts';
 import './App.scss';
 import { useSelector } from './component/hooks/useSelector';
 
-
-
-
 const App: React.FC = () => {
   const logged = useSelector(state => state.user.logged)
   return (

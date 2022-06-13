@@ -39,7 +39,7 @@ const NewsCard: React.FC<PropsType> = ({ data }) => {
                 </div>
             }
 
-            <Link to={`/news/${data.id}`}>
+            <Link to={`/newsPosts/${data.id}`}>
                 <div className='title'>
                     {data.title}
 
