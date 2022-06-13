@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from '../hooks/useSelector';
 import { initialState, NewsFilterReducer } from '../newsPosts/NewsFilterReducer';
@@ -24,6 +24,10 @@ const Header: React.FC = () => {
     const logged = useSelector(state => state.user.logged);
     const { removeUser } = useActions();
     const links = getLinks(logged);
+    const { fetchPosts } = useActions()
+    useEffect(() => {
+        fetchPosts(state)
+    }, [state]);
 
     const handleLogout = () => {
         removeUser()
