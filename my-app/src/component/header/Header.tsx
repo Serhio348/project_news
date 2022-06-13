@@ -7,10 +7,10 @@ import Username from './username/Username';
 import { ReactComponent as LogoIcon } from "../../assets/logo.svg";
 import { ReactComponent as LogoutIcon } from "../../assets/logout.svg";
 import { ReactComponent as LoginIcon } from "../../assets/login.svg";
-
-import "./Header.scss"
 import { useActions } from '../hooks/useActions';
 import { Link } from 'react-router-dom';
+
+import "./Header.scss"
 
 const getLinks = (logged: boolean) => ([
     { url: "/newsPosts", text: "News" },
