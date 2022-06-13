@@ -10,6 +10,7 @@ import BlogsPosts from './component/blogsPosts/BlogsPosts';
 
 import './App.scss';
 import { useSelector } from './component/hooks/useSelector';
+import Footer from './component/footer/Footer';
 
 const App: React.FC = () => {
   const logged = useSelector(state => state.user.logged)
@@ -18,6 +19,7 @@ const App: React.FC = () => {
       <div className="app-container">
         <Header />
         <div className="app-content">
+
           <Routes>
             {!logged &&
               <>
@@ -36,6 +38,7 @@ const App: React.FC = () => {
             <Route path="*" element={<Navigate to={"newsPosts"} />} />
             <Route path="*" element={<Navigate to={"blogsPosts"} />} />
           </Routes>
+          <Footer />
         </div>
 
       </div>
