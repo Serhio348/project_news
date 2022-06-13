@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: row;
   border-bottom: solid 0.5px #c1c2c4;
-  align-items: start;
+  align-items: flex-start;
   .image {
     max-width: 150px;
     height: 100px;
@@ -78,11 +78,7 @@
     color: #c1c2c4;
   }
 }
-.actions-line {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+
 ._liked {
   color: #33aa33;
 }

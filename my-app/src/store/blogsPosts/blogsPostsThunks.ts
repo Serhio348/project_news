@@ -11,7 +11,7 @@ type FetchPostsType = {
 }
 
 export const fetchBlogsPosts = createAsyncThunk<FetchPostsType, PostsFilterType, { rejectValue: string }>(
-    "blogsPosts",
+    "fetchBlogsPosts",
     async ({ page, limit, title, sorting }, thunkApi) => {
         const start = limit * (page - 1);
         let url = `${URL}?_limit=${limit}`;

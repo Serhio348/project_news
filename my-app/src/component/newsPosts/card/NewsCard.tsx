@@ -5,11 +5,11 @@ import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import { IconButton } from '@mui/material';
-
-import "./NewsCard.scss";
 import { useActions } from '../../hooks/useActions';
 import { useSelector } from '../../hooks/useSelector';
-import { NewsGrade } from '../../../enums/NewsGrade';
+import { NewsGrade } from '../../../enums/newsGrade';
+
+import "./NewsCard.scss";
 
 type PropsType = {
     data: NewsType
@@ -18,11 +18,9 @@ const NewsCard: React.FC<PropsType> = ({ data }) => {
     const { likeNews, dislikeNews, markNews } = useActions()
     const grades = useSelector(state => state.newsPosts.grades)
     const isLiked = grades[data.id] === NewsGrade.LIKE;
-    const isDisliked = grades[data.id] === NewsGrade.DISLAKE;
-
+    const isDisliked = grades[data.id] === NewsGrade.DISLIKE;
     const marks = useSelector(state => state.newsPosts.marks);
     const isMarked = marks.includes(data.id)
-
 
     const handleClickLike = () => likeNews(data.id);
     const handleClickDislike = () => dislikeNews(data.id);
@@ -41,7 +39,7 @@ const NewsCard: React.FC<PropsType> = ({ data }) => {
                 </div>
             }
 
-            <Link to={`/newsPosts/${data.id}`}>
+            <Link to={`/news/${data.id}`}>
                 <div className='title'>
                     {data.title}
 
