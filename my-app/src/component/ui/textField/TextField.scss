@@ -1,14 +1,18 @@
 .text-field-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 35px;
   .label {
     margin-bottom: 4px;
+    margin-right: 10px;
     color: var(--header-color);
     font-size: 16px;
   }
 
   .input {
     border: 1px solid var(--primary-color2);
-    border-radius: 16px;
-    padding: 8px 16px;
+    padding: 6px 6px;
     outline: none;
 
     &:hover {

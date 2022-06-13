@@ -14,10 +14,16 @@
     font-weight: 800;
     margin-bottom: 24px;
   }
-
+  .form-content {
+    &._loading {
+      filter: blur(3px);
+    }
+  }
   .text-field-container {
     &:not(:last-child) {
       margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
     }
   }
   .loader {
@@ -34,16 +40,10 @@
     justify-content: center;
     color: black;
   }
-  .form-error {
-    color: #aa0000;
-    margin-bottom: 16px;
+
+  .textbuttom {
+    color: rgb(111, 108, 108);
+    margin-left: 25px;
+    font-size: 0.9rem;
   }
-}
-.textbuttom {
-  color: rgb(111, 108, 108);
-  margin-left: 25px;
-  font-size: 0.9rem;
-}
-.div p a {
-  color: aqua;
 }

@@ -3,10 +3,10 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../hooks/redux-hooks';
 import { Link } from 'react-router-dom';
-
-import '../ui/formCard/FormCard.scss'
 import Storage from '../../helpers/Storage';
 import { useActions } from '../hooks/useActions';
+
+import '../ui/formCard/FormCard.scss'
 
 const Login = () => {
   const dispatch = useAppDispatch()

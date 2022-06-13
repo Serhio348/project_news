@@ -40,8 +40,7 @@ const FormRegin: React.FC<FormProps> = ({ title, handleClick }) => {
                 />
             </div>
             <Button className='button'
-                variant="contained"
-                color="secondary"
+                variant="text"
                 onClick={() => handleClick(email, pass)}
             >
                 {title}
