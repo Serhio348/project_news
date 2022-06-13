@@ -27,6 +27,7 @@ const Header: React.FC = () => {
     const { fetchPosts } = useActions()
     useEffect(() => {
         fetchPosts(state)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state]);
 
     const handleLogout = () => {

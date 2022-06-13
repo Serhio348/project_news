@@ -26,6 +26,7 @@ const TextField: React.FC<PropsType> = ({
         if (autofocus) {
             nameRef.current?.focus();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value)
