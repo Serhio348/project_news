@@ -11,6 +11,7 @@ import { useActions } from '../hooks/useActions';
 import { Link } from 'react-router-dom';
 
 import "./Header.scss"
+import BurgerMenu from './burgerMenu/BurgerMenu';
 
 const getLinks = (logged: boolean) => ([
     { url: "/newsPosts", text: "News" },
@@ -36,6 +37,9 @@ const Header: React.FC = () => {
     }
     return (
         <nav className="header-container">
+            <div className="activebar">
+                <BurgerMenu />
+            </div>
             <div className="logo">
                 <LogoIcon />
                 <div className="app-name">

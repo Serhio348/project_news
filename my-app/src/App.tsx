@@ -19,7 +19,6 @@ const App: React.FC = () => {
       <div className="app-container">
         <Header />
         <div className="app-content">
-
           <Routes>
             {!logged &&
               <>

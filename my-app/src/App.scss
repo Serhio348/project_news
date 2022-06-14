@@ -29,3 +29,8 @@
     transform: scale(1.4);
   }
 }
+@media screen and (max-width: 360px) {
+  .app-content {
+    max-width: 360px;
+  }
+}

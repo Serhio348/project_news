@@ -19,3 +19,12 @@
 .icon-button {
   color: #fff;
 }
+
+@media screen and (max-width: 360px) {
+  .container {
+    padding: 15px;
+  }
+  .row {
+    display: flex;
+  }
+}

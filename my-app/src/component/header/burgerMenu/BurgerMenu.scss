@@ -1,0 +1,12 @@
+.header {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 50px;
+  left: 0;
+  transform: translateX(-120%);
+  transition: all 0.4s;
+}
+.header.active {
+  transform: translateX(0);
+}

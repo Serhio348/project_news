@@ -2,7 +2,7 @@
   .posts-card-content {
     padding: 24px;
     background-color: var(--card-color);
-    max-width: 100%;
+    max-width: 100vh;
     display: flex;
     flex-direction: row;
     border-bottom: solid 0.5px #c1c2c4;
@@ -93,4 +93,27 @@
 .icon {
   width: 50px;
   height: 50px;
+}
+@media screen and (max-width: 360px) {
+  .posts-card-container {
+    display: block;
+    max-width: 560px;
+
+    .posts-card-content {
+      display: flex;
+      flex-direction: column;
+      max-width: 360px;
+      padding: 5px;
+      .image {
+        width: 260px;
+        height: 100px;
+      }
+      .title {
+        font-size: 1rem;
+      }
+      .text {
+        display: none;
+      }
+    }
+  }
 }

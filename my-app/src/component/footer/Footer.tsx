@@ -3,8 +3,10 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import "./Footer.scss";
 import { Button } from "@mui/material";
+
+import "./Footer.scss";
+
 
 const Footer: React.FC = () => {
     const handleLink = () => {
@@ -42,8 +44,8 @@ const Footer: React.FC = () => {
                         </ul>
                     </div>
                     {/* Colomn 2 */}
-                    <div className="col-md-3 col-sm-6">
-                        <h4>Social networks</h4>
+                    <div className="column">
+                        <h4 className="footer-title">Social networks</h4>
                         <ul className="list-social">
                             <li>
                                 <a href="https://www.facebook.com/" target="_blank">

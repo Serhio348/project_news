@@ -25,3 +25,19 @@
     }
   }
 }
+@media (max-width: 360px) {
+  .text-field-container {
+    margin-right: 5px;
+  }
+  .input {
+    padding: 0px;
+    margin-right: 20px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  .app-name {
+    display: none;
+  }
+}

@@ -70,3 +70,28 @@
 .header-username {
   color: white;
 }
+.activebar {
+  display: none;
+}
+
+@media screen and (max-width: 360px) {
+  .header-container {
+    width: 100vh;
+  }
+  .activebar {
+    display: block;
+  }
+  li {
+    margin-bottom: 1px;
+  }
+  .header-username {
+    display: none;
+  }
+  .links li {
+    display: none;
+  }
+  input[type="checkbox"]:checked ~ label + ul {
+    display: block;
+    margin-right: 20px;
+  }
+}
